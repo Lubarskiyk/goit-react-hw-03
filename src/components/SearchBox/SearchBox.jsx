@@ -1,11 +1,11 @@
-export default function SearchBox() {
+export default function SearchBox({ value, onFilter }) {
   return (
     <div>
       <p>Search by name</p>
       <input
         type="text"
-        value=""
-        // onChange={e => onFilter(e.target.value)}
+        value={value}
+        onChange={e => onFilter(e.target.value)}
       />
     </div>
   );

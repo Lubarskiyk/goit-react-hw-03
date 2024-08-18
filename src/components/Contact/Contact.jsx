@@ -1,6 +1,6 @@
 import { MdDelete, MdPerson, MdPhone } from "react-icons/md";
 
-export default function Contact({ data: { name, number } }) {
+export default function Contact({ data: { id, name, number }, onDelete }) {
   return (
     <>
       <div>
@@ -12,7 +12,7 @@ export default function Contact({ data: { name, number } }) {
           <MdPhone /> {number}
         </p>
       </div>
-      <button>
+      <button onClick={() => onDelete(id)}>
         <MdDelete /> Delete
       </button>
     </>
