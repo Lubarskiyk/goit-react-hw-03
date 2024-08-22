@@ -4,6 +4,7 @@ import phoneBookData from "../Data/PhoneBook.json";
 import SearchBox from "./SearchBox/SearchBox.jsx";
 import ContactList from "./ContactList/ContactList.jsx";
 import ContactForm from "./ContactForm/ContactForm.jsx";
+import { nanoid } from "nanoid";
 
 export default function App() {
   const [phoneBook, setPhone] = useState(() => {
@@ -17,6 +18,13 @@ export default function App() {
   useEffect(() => {
     window.localStorage.setItem("phoneBook", JSON.stringify(phoneBook));
   }, [phoneBook]);
+
+  function addPhone(values) {
+    values.id = nanoid();
+    setPhone(prevPhone => {
+      return [...prevPhone, values];
+    });
+  }
 
   function deletePhone(phoneId) {
     setPhone(prevPhone => {
@@ -33,7 +41,7 @@ export default function App() {
   return (
     <>
       <h1>Phonebook</h1>
-      <ContactForm />
+      <ContactForm onAdd={addPhone} />
       <SearchBox value={filterBook} onFilter={setFilterBook} />
       <ContactList phoneBook={visiblePhone} onDelete={deletePhone} />
     </>
