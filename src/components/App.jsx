@@ -4,7 +4,6 @@ import phoneBookData from "../Data/PhoneBook.json";
 import SearchBox from "./SearchBox/SearchBox.jsx";
 import ContactList from "./ContactList/ContactList.jsx";
 import ContactForm from "./ContactForm/ContactForm.jsx";
-import { nanoid } from "nanoid";
 
 export default function App() {
   const [phoneBook, setPhone] = useState(() => {
@@ -20,7 +19,6 @@ export default function App() {
   }, [phoneBook]);
 
   function addPhone(values) {
-    values.id = nanoid();
     setPhone(prevPhone => {
       return [...prevPhone, values];
     });
