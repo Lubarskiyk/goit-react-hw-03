@@ -50,7 +50,7 @@ export default function ContactForm({ onAdd }) {
           <Field type="tel" name="number" id={phoneFieldId} />
           <ErrorMessage
             className={css.formError}
-            name="name"
+            name="number"
             component="span"
           />
         </div>
