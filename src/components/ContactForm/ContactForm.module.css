@@ -17,6 +17,13 @@
      gap: 0.2rem;
 }
 
+.formError{
+    display: block;
+    max-width: 300px;
+    color: red;
+}
+
+
 
 
 
